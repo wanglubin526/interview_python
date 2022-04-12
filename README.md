@@ -15,31 +15,3 @@
 输出：
 6
 """
-def main():
-  try:
-    cpu_num = eval(input())
-    if cpu_num < 1 or cpu_num > 10000:
-      raise Exception("输入的CPU个数超出规定范围!")
-    arr_num = eval(input())
-    if arr_num < 1 or arr_num > 10000:
-      raise Exception("输入的任务数长度超出规定范围!")
-    lis = list(map(int, input().split(" ")))
-    if len(lis) != arr_num:
-      raise Exception("输入的任务数组元素个数异常!")
-    num = 0
-    time = 0
-    for i in lis:
-      if i + num > cpu_num:
-        num = i + num - cpu_num
-      else:
-        num = 0
-      time += 1
-    while num > 0:
-      num -= cpu_num
-      time += 1
-    print(time)
-  except Exception as e:
-      print(e)
-  except:
-    print("程序异常！")
-main()
